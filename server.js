@@ -11,7 +11,9 @@ app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: "http://127.0.0.1:5500", credentials: true }));
-
+app.get('/',(req,res)=>{
+  res.send('server started successfully')
+})
 app.post("/send-email", async (req, res) => {
   try {
     const transporter = nodemailer.createTransport({
@@ -47,6 +49,7 @@ app.post("/send-email", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
   console.log(`Server started at port ${PORT}`);
 });
