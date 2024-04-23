@@ -10,10 +10,12 @@ const app = express();
 app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: "http://127.0.0.1:5500", credentials: true }));
-app.get('/',(req,res)=>{
-  res.send('server started successfully')
-})
+app.use(
+  cors({ origin: "https://mrtidy-frontend.vercel.app", credentials: true })
+);
+app.get("/", (req, res) => {
+  res.send("server started successfully");
+});
 app.post("/send-email", async (req, res) => {
   try {
     const transporter = nodemailer.createTransport({
