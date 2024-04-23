@@ -14,7 +14,7 @@ app.use(
   cors({ origin: "https://mrtidy-frontend.vercel.app", credentials: true })
 );
 app.get("/", (req, res) => {
-  res.send("server started successfully");
+  res.json("server started successfully");
 });
 app.post("/send-email", async (req, res) => {
   try {
