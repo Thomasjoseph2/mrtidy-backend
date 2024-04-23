@@ -10,9 +10,18 @@ const app = express();
 app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// app.use(
+//   // cors({ origin: "https://mrtidy-frontend.vercel.app", credentials: true })
+//     cors({ origin: "https://localhost:5500", credentials: true })
+
+// );
 app.use(
-  cors({ origin: "https://mrtidy-frontend.vercel.app", credentials: true })
+  cors({
+    origin: "https://mrtidy-frontend.vercel.app",
+    credentials: true,
+  })
 );
+
 app.get("/", (req, res) => {
   res.json("server started successfully");
 });
